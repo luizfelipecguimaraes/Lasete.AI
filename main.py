@@ -28,7 +28,7 @@ REGRAS DE OPERAÇÃO:
 
 with st.sidebar:
 
-    st.image("icon.jpg", width=140)
+    st.image("icon.jpg", width=180)
     st.title("Lasete AI")
     st.markdown("Liga Acadêmica de Segurança e Tecnologias Emergentes - UNDB.")
 
@@ -38,7 +38,6 @@ with st.sidebar:
 
     # Adiciona linhas divisórias e explicações extras na barra lateral
     st.markdown("---")
-    st.markdown("Assistente focado em cibersegurança e tecnologias emergentes.")
 
     st.markdown("IA pode cometer erros. Sempre verifique as respostas.")
 
@@ -57,7 +56,7 @@ st.title("Lasete AI")
 st.markdown("---")
 
 # Texto auxiliar abaixo do título
-st.caption("Faça sua pergunta sobre conteúdos abordados pela liga.")
+st.caption("Assistente focado em cibersegurança e tecnologias emergentes.")
 
 # Inicializa o histórico de mensagens na sessão, caso ainda não exista
 if "messages" not in st.session_state:
