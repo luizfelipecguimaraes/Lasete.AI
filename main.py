@@ -6,7 +6,7 @@ load_dotenv()
 
 st.set_page_config(
     page_title="Lasete AI",
-    page_icon="👨‍💻",
+    page_icon="icon.jpg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -16,7 +16,7 @@ CUSTOM_PROMPT = """
 Você é o "Lasete AI", um assistente de IA especialista em cibersegurança e tecnologias emergentes. Sua missão é ajudar os ligantes da Liga Acadêmica de Segurança e Tecnologias Emergentes (Lasete) da UNDB com dúvidas sobre os temas principais da liga de forma clara, precisa e útil.
 
 REGRAS DE OPERAÇÃO:
-1.  **Foco em Programação**: Responda apenas a perguntas relacionadas a cibersegurança, pilares da segurança da informação, meios de ataques online, criptografias, visão computacional, inteligência artificial, Iot, Blockchain, e demais assuntos que estejam corelacionados a liga acadêmica. Se o usuário perguntar sobre outros assuntos, responda educadamente que seu foco é exclusivamente em auxiliar com assuntos relacionados à Lasete.
+1.  **Foco**: Responda apenas a perguntas relacionadas a cibersegurança, pilares da segurança da informação, meios de ataques online, criptografias, visão computacional, inteligência artificial, Iot, Blockchain, e demais assuntos que estejam corelacionados a liga acadêmica. Se o usuário perguntar sobre outros assuntos, responda educadamente que seu foco é exclusivamente em auxiliar com assuntos relacionados à Lasete.
 2.  **Estrutura da Resposta**: Sempre formate suas respostas da seguinte maneira:
     * **Explicação Clara**: Comece com uma explicação conceitual sobre o tópico perguntado. Seja direto e didático.
     * **Exemplo de prática**: Forneça um ou mais exemplos de aplicação do assunto questionado, sendo bem comentado para explicar as partes importantes.
@@ -28,33 +28,33 @@ REGRAS DE OPERAÇÃO:
 
 with st.sidebar:
 
-    st.title("🤖 Lasete AI")
+    st.image("icon.jpg", width=140)
+    st.title("Lasete AI")
+    st.markdown("Liga Acadêmica de Segurança e Tecnologias Emergentes - UNDB.")
+
     
-    # Mostra um texto explicativo sobre o assistente
-    st.markdown("Um assistente de IA focado em conteúdos abrodados pela Liga Acadêmica de Segurança e Tecnologias Emergentes - UNDB")
-    
-    # Campo para inserir a chave de API da Groq
+    # Campo da chave de API da Groq
     groq_api_key = os.getenv("QROQ_API_KEY")
 
     # Adiciona linhas divisórias e explicações extras na barra lateral
     st.markdown("---")
-    st.markdown("Desenvolvido para auxiliar em suas dúvidas. IA pode cometer erros. Sempre verifique as respostas.")
+    st.markdown("Assistente focado em cibersegurança e tecnologias emergentes.")
+
+    st.markdown("IA pode cometer erros. Sempre verifique as respostas.")
 
     st.markdown("---")
     st.markdown("Conheça mais sobre a Lasete:")
 
     # Link para o site da DSA
     st.markdown("🔗 [Site oficial](https://lasete.vercel.app)")
-    st.markdown("🔗 [Instagram Lasete](https://www.instagram.com/lasete.undb)")
+    st.markdown("🔗 [Instagram](https://www.instagram.com/lasete.undb)")
     
     # Botão de link para enviar e-mail ao suporte da DSA
     st.link_button("✉️ E-mail Para o Suporte no Caso de Dúvidas", "mailto:lasete.undb@gmail.com")
 
 # Título principal do app
 st.title("Lasete AI")
-
-# Subtítulo adicional
-st.title("Assistente Pessoal para ligantes ativos")
+st.markdown("---")
 
 # Texto auxiliar abaixo do título
 st.caption("Faça sua pergunta sobre conteúdos abordados pela liga.")
@@ -71,7 +71,7 @@ for message in st.session_state.messages:
 # Inicializa a variável do cliente Groq como None
 client = None
 
-# Verifica se o usuário forneceu a chave de API da Groq
+# Verifica se existe a chave de API da Groq
 if groq_api_key:
     
     try:
